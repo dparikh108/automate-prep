@@ -1,0 +1,22 @@
+- name: Post-installation VM configuration
+  hosts: all
+  gather_facts: true
+  become: true
+  tasks:
+
+    - name: Get OS name
+      ansible.builtin.slurp:
+        src: /etc/redhat-release
+      register: os
+
+    - name: Configure MOTD
+      ansible.builtin.template:
+        src: "{{ playbook_dir }}/../templates/motd.j2"
+        dest: /etc/motd
+        mode: '0644'
+        owner: root
+        group: root
+
+    - name: Print VM private IP address
+      ansible.builtin.debug:
+        msg: "IP address: {{ ansible_eth1.ipv4.address }}"

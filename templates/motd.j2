@@ -1,0 +1,9 @@
+###############################################
+Welcome to {{ ansible_hostname }}!
+Instance Type: {{ annotations["kubevirt.io/cluster-instancetype-name"] }}
+Operating System: {{ os['content'] | b64decode -}}
+IPs: 
+{% for ip in ansible_all_ipv4_addresses %}
+  - {{ ip }}
+{% endfor %}
+###############################################
