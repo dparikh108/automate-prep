@@ -1,6 +1,6 @@
 ---
-- plugin: redhat.openshift_virtualization.kubevirt
-  connections:
-    - network_name: default
-      namespaces:
-        - demovms 
+plugin: redhat.openshift_virtualization.kubevirt
+connections:
+  - network_name: default
+    namespaces:
+      - demovms 
