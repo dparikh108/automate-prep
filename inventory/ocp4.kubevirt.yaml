@@ -4,3 +4,6 @@ connections:
   - network_name: default
     namespaces:
       - demovms 
+  - network_name: net-0
+    namespaces:
+      - demovms 
